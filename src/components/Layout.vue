@@ -21,7 +21,7 @@
     .content{
         flex-grow: 1;
         overflow: auto;
-        border: 1px solid blue;
+        /*border: 1px solid blue;*/
     }
     .nav-wrapper{
         border: 1px solid green;

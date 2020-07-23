@@ -23,11 +23,12 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "~@/assets/style/helper.scss";
     nav{
         display: flex;
         box-shadow: 0 0 3px rgba(0,0,0,0.3);
         flex-direction: row;
-        font-size: 12px;
+        font-size: 13px;
         > .item{
             padding: 2px 0;
             width: 33.333%;
@@ -36,12 +37,12 @@
             align-items: center;
             flex-direction: column;
             .icon{
-                width: 28px;
-                height: 28px;
+                width: 25px;
+                height: 25px;
             }
         }
         > .item.selected{
-            color: orangered;
+            color: $color-highlight;
         }
     }
 </style>

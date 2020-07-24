@@ -4,3 +4,11 @@ $font-song:Georgia, "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Sou
 
 $color-highlight: orangered;
 
+//placeholder
+%clearFix{
+  &::after{
+    content: '';
+    clear: both;
+    display: block;
+  }
+}

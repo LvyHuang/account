@@ -1,28 +1,5 @@
 <template>
-    <Layout>
-        <div>
-            <ul class="types">
-                <li class="selected">支出</li>
-                <li>收入</li>
-            </ul>
-        </div>
-        <div class="tags">
-            <ul class="current">
-                <li>衣</li>
-                <li>食</li>
-                <li>住</li>
-                <li>行</li>
-            </ul>
-            <div class="new">
-                <button>新增标签</button>
-            </div>
-        </div>
-        <div>
-            <label class="notes">
-                <span class="name">备注</span>
-                <input type="text" placeholder="在这里输入备注">
-            </label>
-        </div>
+    <Layout class-prefix="layout">
         <div class="nubmerPad">
             <div class="output">100</div>
             <div class="buttons">
@@ -42,6 +19,29 @@
                 <button>.</button>
             </div>
         </div>
+        <div>
+            <label class="notes">
+                <span class="name">备注</span>
+                <input type="text" placeholder="在这里输入备注">
+            </label>
+        </div>
+        <div class="tags">
+            <ul class="current">
+                <li>衣</li>
+                <li>食</li>
+                <li>住</li>
+                <li>行</li>
+            </ul>
+            <div class="new">
+                <button>新增标签</button>
+            </div>
+        </div>
+        <div>
+            <ul class="types">
+                <li class="selected">支出</li>
+                <li>收入</li>
+            </ul>
+        </div>
     </Layout>
 </template>
 
@@ -51,26 +51,99 @@
   };
 </script>
 
+<style lang="scss">
+    .layout-content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+</style>
 <style lang="scss" scoped>
     @import "~@/assets/style/helper.scss";
+    .types{
+        background: #FFDA47;
+        display: flex;
+        text-align: center;
+        height: 60px;
+        font-size: 20px;
+        > li{
+            width: 50%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            &.selected::after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%,0);
+                width: 80px;
+                height: 2px;
+                background: #333;
+            }
+        }
+    }
+    .tags{
+        flex-grow: 1;
+        font-size: 14px;
+        padding: 16px;
+        > .current{
+            display: flex;
+            > li{
+                background: #d9d9d9;
+                height: 24px;
+                line-height: 24px;
+                border-radius: 12px;
+                padding: 0 16px;
+                margin-right: 12px;
+            }
+        }
+        > .new{
+            padding-top: 16px;
+            button{
+                background: transparent;
+                border: none;
+                color: #999;
+                border-bottom: 1px solid;
+                padding: 0 4px;
+            }
+        }
+    }
+    .notes{
+        font-size: 14px;
+        padding-left: 16px;
+        display: flex;
+        align-items: center;
+        .name{
+            padding-right: 16px;
+        }
+        input{
+            height: 50px;
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding-right: 16px;
+        }
+    }
     .nubmerPad{
         .output{
-            font-size: 36px;
+            font-size: 32px;
+            background: #f5f5f5;
             font-family: Consolas, monospace;
-            padding: 9px 16px;
+            padding: 5px 16px;
             text-align: right;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
         }
         .buttons{
             @extend %clearFix;
             > button{
                 width: 25%;
-                height: 64px;
+                height: 56px;
                 float: left;
                 background: transparent;
                 border: none;
                 &.ok{
-                    height: 64*2px;
+                    height: 56*2px;
                     float: right;
                 }
                 &.zero{
@@ -98,75 +171,6 @@
                 &:nth-child(12){
                     background: darken($bg, 4*6%);
                 }
-            }
-        }
-
-    }
-    .types{
-        background: orange;
-        display: flex;
-        text-align: center;
-        height: 64px;
-        font-size: 24px;
-        > li{
-            width: 50%;
-            height: 64px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            &.selected::after{
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translate(-50%,0);
-                width: 80px;
-                height: 2px;
-                background: #333;
-            }
-        }
-    }
-    .notes{
-        font-size: 14px;
-        background: #f5f5f5;
-        padding-left: 16px;
-        display: flex;
-        align-items: center;
-        .name{
-            padding-right: 16px;
-        }
-        input{
-            height: 64px;
-            flex-grow: 1;
-            background: transparent;
-            border: none;
-            padding-right: 16px;
-        }
-    }
-
-    .tags{
-        font-size: 14px;
-        padding: 16px;
-        > .current{
-            display: flex;
-            > li{
-                background: #d9d9d9;
-                height: 24px;
-                line-height: 24px;
-                border-radius: 12px;
-                padding: 0 16px;
-                margin-right: 12px;
-            }
-        }
-        > .new{
-            padding-top: 16px;
-            button{
-                background: transparent;
-                border: none;
-                color: #999;
-                border-bottom: 1px solid;
-                padding: 0 4px;
             }
         }
     }

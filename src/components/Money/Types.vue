@@ -10,22 +10,18 @@
 </template>
 
 <script lang="ts">
-  export default {
-    name: 'Types',
-    data() {
-      return {
-        type: '-'  // '-'表示支出，'+'表示
+  import Vue from 'vue';
+  import {Component} from 'vue-property-decorator';
+  @Component
+  export default class Types extends Vue {
+    type = '-';
+    selectType(type: string){   //type 只能是 '-' 和 '+' 中的一个
+      if(type !== '-' && type !== '+'){
+        throw new Error('type is unknow')
       }
-    },
-    methods:{
-      selectType(type){
-        if(type !== '-' && type !== '+'){
-          throw new Error('type is unknow')
-        }
         this.type = type;
-      }
     }
-  };
+  }
 </script>
 
 <style lang="scss" scoped>

@@ -27,7 +27,7 @@
       } else{
         this.selectedTags.push(tag);
       }
-      this.$emit('update',this.selectedTags)
+      this.$emit('update:value',this.selectedTags)
     }
 
     create(){

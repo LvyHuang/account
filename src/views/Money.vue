@@ -2,7 +2,6 @@
     <Layout class-prefix="layout">
         <NumberPad :value.sync="record.amount" @update:value="onUpdateAmount" @submit="saveRecord"/>
         <Notes @update:value="onUpdateNotes"/>
-        {{recordList}}
         <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
         <Types :value.sync="record.type"/>
     </Layout>
@@ -55,5 +54,6 @@
     .layout-content{
         display: flex;
         flex-direction: column-reverse;
+        background: white;
     }
 </style>

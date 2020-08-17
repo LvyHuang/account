@@ -1,6 +1,7 @@
 <template>
   <div>
     <label class="notes">
+      <Icon name="remark"/>
       <span class="name">{{value}}备注</span>
       <input type="text" v-model="value"
              placeholder="在这里输入备注">
@@ -29,11 +30,15 @@
     padding-left: 16px;
     display: flex;
     align-items: center;
+    background: #fff;
+    .icon{
+
+    }
     .name{
-      padding-right: 16px;
+      padding: 0 16px 0 3px;
     }
     input{
-      height: 50px;
+      height: 40px;
       flex-grow: 1;
       background: transparent;
       border: none;

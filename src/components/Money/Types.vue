@@ -29,11 +29,11 @@
     background: #FFDA47;
     display: flex;
     text-align: center;
-    height: 60px;
+    height: 50px;
     font-size: 20px;
     > li{
       width: 50%;
-      height: 60px;
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;

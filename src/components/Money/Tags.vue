@@ -47,6 +47,7 @@
     flex-grow: 1;
     font-size: 14px;
     padding: 16px;
+    overflow: auto;
     > .current{
       display: flex;
       flex-wrap: wrap;

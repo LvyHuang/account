@@ -14,6 +14,7 @@ body{
   line-height: 1.5;
   font-family: $font-hei;
   font-size: 16px;
+  background: #f5f5f5;
 }
 #nav {
   padding: 30px;

@@ -67,22 +67,22 @@
   @import "~@/assets/style/helper.scss";
   .nubmerPad{
     .output{
-      font-size: 32px;
+      font-size: 30px;
       background: #f5f5f5;
       font-family: Consolas, monospace;
-      padding: 5px 16px;
+      padding: 0 16px;
       text-align: right;
     }
     .buttons{
       @extend %clearFix;
       > button{
         width: 25%;
-        height: 56px;
+        height: 55px;
         float: left;
         background: transparent;
         border: none;
         &.ok{
-          height: 56*2px;
+          height: 55*2px;
           float: right;
         }
         &.zero{

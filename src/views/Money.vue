@@ -10,18 +10,17 @@
 <script lang="ts">
   import Vue from 'vue';
   import NumberPad from '@/components/Money/NumberPad.vue';
-  import EditItem from '@/components/Money/EditItem.vue';
   import Tags from '@/components/Money/Tags.vue';
   import Types from '@/components/Money/Types.vue';
-  import {Component, Watch} from 'vue-property-decorator';
+  import EditItem from '@/components/Money/EditItem.vue';
   import recordListModel from '@/models/recordListModel';
   import tagListModel from '@/models/tagListModel';
-
+  import {Component, Watch} from 'vue-property-decorator';
   const recordList = recordListModel.fetch();
   const tagList = tagListModel.fetch();
 
   @Component({
-      components: {Types, Tags, EditItem, NumberPad}
+      components: {EditItem, Types, Tags,  NumberPad}
   })
   export default class Money extends Vue{
       tags = tagList;

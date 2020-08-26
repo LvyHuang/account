@@ -33,11 +33,8 @@
     display: flex;
     align-items: center;
     background: #fff;
-    .icon{
-
-    }
     .name{
-      padding: 0 16px 0 3px;
+      padding: 0 12px 0 3px;
     }
     input{
       height: 40px;

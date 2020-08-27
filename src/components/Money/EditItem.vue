@@ -3,7 +3,7 @@
     <label class="notes">
       <Icon name="remark"/>
       <span class="name">{{this.fieldName}}</span>
-      <input type="text" v-model="value"
+      <input type="text" :value="value" @input="onValueChanged($event.target.value)"
              :placeholder="this.placeholder">
     </label>
   </div>
@@ -17,7 +17,7 @@
   export default class EditItem extends Vue{
     @Prop({required:true}) fieldName!:string;
     @Prop() placeholder!: string;
-    value = '';
+    @Prop({default: ''}) readonly value!: string;
 
     @Watch('value')
     onValueChanged(value: string){

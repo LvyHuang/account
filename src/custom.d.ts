@@ -5,3 +5,18 @@ type RecordItem = {
   amount: number,
   createdAt?: Date   //类 / 构造函数
 }
+type Tag = {
+  id: string,
+  name: string
+}
+type TagListModel = {
+  data: Tag[],
+  fetch: () => Tag[],
+  create: (name: string) => 'success' | 'duplicated',  // success 表示成功，duplicated 表示name重复
+  update: (id:string, name:string) => 'success' | 'duplicated' | 'not found'
+  remove: (id:string) => boolean
+  save: () => void
+}
+interface Window {
+  tagList: Tag[]
+}

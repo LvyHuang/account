@@ -39,9 +39,7 @@
         this.record.amount = parseFloat(value);
       }
       saveRecord(){
-          const record2: RecordItem = JSON.parse(JSON.stringify(this.record));
-          record2.createdAt = new Date();
-          this.recordList.push(record2);
+        recordListModel.creat(this.record);
       }
 
       @Watch('recordList')

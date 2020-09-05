@@ -4,7 +4,7 @@
       <Icon name="remark"/>
       <span class="name">{{this.fieldName}}</span>
       <input type="text" :value="value" @input="onValueChanged($event.target.value)"
-             :placeholder="this.placeholder">
+             :placeholder="placeholder">
     </label>
   </div>
 </template>
@@ -19,7 +19,6 @@
     @Prop() placeholder!: string;
     @Prop({default: ''}) readonly value!: string;
 
-    @Watch('value')
     onValueChanged(value: string){
       this.$emit('update:value',value);
     }

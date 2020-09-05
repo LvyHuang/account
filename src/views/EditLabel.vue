@@ -17,7 +17,6 @@
 <script lang="ts">
   import Vue from 'vue';
   import {Component} from 'vue-property-decorator';
-  import tagListModels from '@/models/tagListModel';
   import EditItem from '@/components/Money/EditItem.vue';
   import Button from '@/components/Button.vue';
 
@@ -25,27 +24,22 @@
     components: {Button,EditItem}
   })
   export default class EditLabel extends Vue {
-    tag?:{id:string, name: string} = undefined;
+    tag?:Tag = undefined;
 
     created(){
-      const id = this.$route.params.id;
-      tagListModels.fetch();
-      const tags = tagListModels.data;
-      const tag = tags.filter(t => t.id === id)[0];
-      if(tag){
-        this.tag = tag;
-      }else {
+      this.tag = window.findTag(this.$route.params.id);
+      if(!this.tag){
         this.$router.replace('/404');
       }
     }
     update(name:string){
       if(this.tag){
-        tagListModels.update(this.tag.id, name);
+        window.updateTag(this.tag.id, name);
       }
     }
     remove(){
       if(this.tag){
-        if(tagListModels.remove(this.tag.id)){
+        if(window.removeTag(this.tag.id)){
           this.$router.back();
         } else {
           window.alert('删除失败');

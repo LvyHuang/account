@@ -23,5 +23,7 @@ interface Window {
   findTag: (id:string) => Tag,
   createTag: (name: string) => void,
   removeTag: (id: string) => boolean,
-  updateTag:TagListModel['update']
+  updateTag: TagListModel['update'],
+  recordList: RecordItem[],
+  createRecord: (record: RecordItem) => void
 }

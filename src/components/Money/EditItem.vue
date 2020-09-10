@@ -11,12 +11,12 @@
 
 <script lang="ts">
   import Vue from 'vue';
-  import {Component, Prop, Watch} from 'vue-property-decorator';
+  import {Component, Prop} from 'vue-property-decorator';
 
   @Component
   export default class EditItem extends Vue{
     @Prop({required:true}) fieldName!:string;
-    @Prop() placeholder!: string;
+    @Prop() placeholder!:string;
     @Prop({default: ''}) readonly value!: string;
 
     onValueChanged(value: string){

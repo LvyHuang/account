@@ -2,7 +2,7 @@
   <div>
     <label class="notes">
       <Icon name="remark"/>
-      <span class="name">{{this.fieldName}}</span>
+      <span class="name">{{fieldName}}</span>
       <input type="text" :value="value" @input="onValueChanged($event.target.value)"
              :placeholder="placeholder">
     </label>

@@ -1,8 +1,10 @@
 <template>
     <Layout class-prefix="layout">
-        <NumberPad :value.sync="record.amount" @update:value="onUpdateAmount" @submit="saveRecord"/>
+        <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
         <EditItem field-name="备注" placeholder="请输入备注" @update:value="onUpdateNotes"/>
-        <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
+        {{count}}
+        <button @click="add">+10</button>
+        <Tags />
         <Types :value.sync="record.type"/>
     </Layout>
 </template>
@@ -14,29 +16,34 @@
   import Types from '@/components/Money/Types.vue';
   import EditItem from '@/components/Money/EditItem.vue';
   import {Component} from 'vue-property-decorator';
-  import store from '@/store/index2';
 
   @Component({
-      components: {EditItem, Types, Tags,  NumberPad}
+      components: {EditItem, Types, Tags,  NumberPad},
+      computed:{
+        count(){
+          return this.$store.state.count;
+        },
+        recordList(){
+          return this.$store.state.recordList;
+        }
+      }
   })
   export default class Money extends Vue{
-      tags = store.tagList;
-      recordList: RecordItem[] = store.recordList;
+      add(){
+          this.$store.commit('increment',10)
+      }
       record: RecordItem = {
           tags: [], notes: '', type: '-', amount: 0
       };
-
-      onUpdateTags(value: string[]){
-        this.record.tags = value;
+      created(){
+          this.$store.commit('fetchRecords');
       }
+
       onUpdateNotes(value: string){
         this.record.notes = value;
       }
-      onUpdateAmount(value: string){
-        this.record.amount = parseFloat(value);
-      }
       saveRecord(){
-        store.createRecord(this.record);
+        this.$store.commit('createRecord',this.record);
       }
 
   };

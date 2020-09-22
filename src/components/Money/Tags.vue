@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <ul class="current">
-      <li v-for="tag in dataSource" :key="tag.id"
+      <li v-for="tag in tagList" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag)>=0}"
           @click="toggle(tag)">{{tag.name}}</li>
     </ul>
@@ -14,12 +14,11 @@
 <script lang="ts">
   import Vue from 'vue';
   import {Component,Prop} from 'vue-property-decorator';
-  import tagListModel from '@/models/tagListModel';
-  tagListModel.fetch;
 
   @Component
   export default class Tags extends Vue{
-    @Prop() readonly dataSource: string[] | undefined;
+    tagList = [];
+    //tagList = store.fetchTags();
     selectedTags: string[] = [];
 
     toggle(tag: string){
@@ -33,17 +32,17 @@
     }
 
     create(){
-      const name = window.prompt('请输入标签名');
-      if(name){
-        const message = tagListModel.create(name);
-        if(message === 'duplicated'){
-          window.alert('标签名重复了');
-        }else if(message === 'success' && this.dataSource){
-          // this.$emit('update:dataSource',
-          //   [...this.dataSource, name]);
-          window.alert('新建标签成功');
-        }
-      }
+    //   const name = window.prompt('请输入标签名');
+    //   if(name){
+    //     const message = index2.createTag(name);
+    //     if(message === 'duplicated'){
+    //       window.alert('标签名重复了');
+    //     }else if(message === 'success' && this.dataSource){
+    //       // this.$emit('update:dataSource',
+    //       //   [...this.dataSource, name]);
+    //       window.alert('新建标签成功');
+    //     }
+    //   }
     }
   };
 </script>

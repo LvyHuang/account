@@ -22,11 +22,11 @@
       components: {Button}
   })
   export default class Labels extends Vue{
-      tags = window.tagList;
+      //tags = store.fetchTags();
       createTag(){
         const name = window.prompt('请输入标签名');
         if(name){
-          window.createTag(name);
+          //store.createTag(name);
         }
       }
   }

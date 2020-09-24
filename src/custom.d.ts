@@ -9,23 +9,3 @@ type Tag = {
   id: string,
   name: string
 }
-type TagListModel = {
-  data: Tag[],
-  fetchRecords: () => Tag[],
-  create: (name: string) => 'success' | 'duplicated',  // success 表示成功，duplicated 表示name重复
-  update: (id: string, name: string) => 'success' | 'duplicated' | 'not found'
-  remove: (id: string) => boolean
-  saveRecords: () => void
-}
-
-interface Window {
-  store:{
-    tagList: Tag[],
-    findTag: (id:string) => Tag,
-    createTag: (name: string) => void,
-    removeTag: (id: string) => boolean,
-    updateTag: TagListModel['update'],
-    recordList: RecordItem[],
-    createRecord: (record: RecordItem) => void
-  }
-}

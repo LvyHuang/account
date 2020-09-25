@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="types">
+    <ul class="tabs">
       <li :class="value === '-' && 'selected'"
           @click="selectType('-')">支出</li>
       <li :class="value === '+' && 'selected'"
@@ -25,7 +25,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .types{
+  .tabs{
     background: #FFDA47;
     display: flex;
     text-align: center;

@@ -16,7 +16,7 @@
   import intervalList from '@/constants/intervalList';
 
   @Component({
-    components: {Types, Tabs}
+    components: {Tabs}
   })
   export default class Statistics extends Vue {
     type = '-';

@@ -17,7 +17,7 @@
   import recordTypeList from '@/constants/recordTypeList';
 
   @Component({
-      components: {Tabs, EditItem, Types, Tags,  NumberPad}
+      components: {Tabs, EditItem, Tags,  NumberPad}
   })
   export default class Money extends Vue{
       recordTpeList = recordTypeList;

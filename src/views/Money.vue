@@ -2,7 +2,7 @@
     <Layout class-prefix="layout">
         <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
         <EditItem field-name="备注" placeholder="请输入备注" @update:value="onUpdateNotes"/>
-        <Tags />
+        <Tags @update:value="onUpdateTags"/>
         <Tabs :value.sync="record.type" :data-source="recordTpeList"/>
     </Layout>
 </template>
@@ -32,6 +32,9 @@
       }
       onUpdateNotes(value: string){
         this.record.notes = value;
+      }
+      onUpdateTags(value: string[]){
+          this.record.tags = value;
       }
       saveRecord(){
         this.$store.commit('createRecord',this.record);
